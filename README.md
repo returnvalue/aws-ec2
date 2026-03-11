@@ -39,3 +39,4 @@ Based on AWS best practices (SAA-C03), these labs cover:
 
 ## 📚 Labs Index
 1. [Lab 1: Network Foundation & EC2 Provisioning](./labs/lab1-network-foundation-ec2/README.md)
+2. [Lab 2: Layer 7 Application Load Balancer (ALB)](./labs/lab2-application-load-balancer/README.md)
