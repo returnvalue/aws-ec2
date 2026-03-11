@@ -41,3 +41,4 @@ Based on AWS best practices (SAA-C03), these labs cover:
 1. [Lab 1: Network Foundation & EC2 Provisioning](./labs/lab1-network-foundation-ec2/README.md)
 2. [Lab 2: Layer 7 Application Load Balancer (ALB)](./labs/lab2-application-load-balancer/README.md)
 3. [Lab 3: EC2 Auto Scaling (Launch Templates & ASG)](./labs/lab3-auto-scaling-groups/README.md)
+4. [Lab 4: Auto Scaling Policies (Target Tracking)](./labs/lab4-auto-scaling-policies/README.md)
