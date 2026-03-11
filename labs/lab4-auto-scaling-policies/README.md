@@ -32,3 +32,11 @@ awslocal autoscaling put-scaling-policy \
     - `ALBRequestCountPerTarget`
 - **Cooldown Periods:** Helps prevent the ASG from launching or terminating additional instances before the previous scaling activity takes effect, avoiding "flapping."
 - **Cost vs. Performance:** Target tracking ensures you have enough capacity for peak demand while saving costs by scaling down during low-traffic periods.
+
+## 🛠️ Command Reference
+
+- `awslocal autoscaling put-scaling-policy`: Adds or updates a scaling policy for an Auto Scaling group.
+    - `--auto-scaling-group-name`: The name of the Auto Scaling group.
+    - `--policy-name`: A descriptive name for the policy.
+    - `--policy-type`: The type of scaling policy (e.g., `TargetTrackingScaling`).
+    - `--target-tracking-configuration`: Specifies the metric and target value for the policy.

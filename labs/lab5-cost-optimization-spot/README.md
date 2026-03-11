@@ -24,3 +24,14 @@ awslocal ec2 run-instances \
     - CI/CD pipelines and testing environments.
 - **Spot Price:** The price for a Spot instance fluctuates based on supply and demand for the instance type in the specific Availability Zone.
 - **Market Options:** By specifying `MarketType: spot`, you tell AWS to provision the instance from the Spot pool rather than the On-Demand pool.
+
+## 🛠️ Command Reference
+
+- `awslocal ec2 run-instances`: Launches a new EC2 instance with specified parameters.
+    - `--image-id`: The AMI ID to use.
+    - `--instance-type`: The type of instance (e.g., `c5.large`).
+    - `--subnet-id`: The subnet to launch into.
+    - `--instance-market-options`: Specifies market options, such as `MarketType: spot` for discounted instances.
+    - `--tag-specifications`: Adds tags to the instance at launch.
+    - `--query`: Filters the output to return specific fields.
+    - `--output`: Sets the output format (e.g., `text`).
