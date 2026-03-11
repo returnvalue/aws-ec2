@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AmiId: {Type: String}
+Resources:
+  VPC:
+    Type: 'AWS::EC2::VPC'
+    Properties: {CidrBlock: 10.0.0.0/16}
+  Subnet1:
+    Type: 'AWS::EC2::Subnet'
+    Properties: {VpcId: !Ref VPC, CidrBlock: 10.0.1.0/24, AvailabilityZone: us-east-1a}
+  Subnet2:
+    Type: 'AWS::EC2::Subnet'
+    Properties: {VpcId: !Ref VPC, CidrBlock: 10.0.2.0/24, AvailabilityZone: us-east-1b}
+  IGW:
+    Type: 'AWS::EC2::InternetGateway'
+  VpcIgwAttachment:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties: {VpcId: !Ref VPC, InternetGatewayId: !Ref IGW}
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties: {VpcId: !Ref VPC}
+  DefaultRoute:
+    Type: 'AWS::EC2::Route'
+    Properties: {RouteTableId: !Ref PublicRouteTable, DestinationCidrBlock: 0.0.0.0/0, GatewayId: !Ref IGW}
+  Subnet1Assoc:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties: {SubnetId: !Ref Subnet1, RouteTableId: !Ref PublicRouteTable}
+  Subnet2Assoc:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties: {SubnetId: !Ref Subnet2, RouteTableId: !Ref PublicRouteTable}
+  WebSG:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow HTTP
+      VpcId: !Ref VPC
+      SecurityGroupIngress: [{IpProtocol: tcp, FromPort: 80, ToPort: 80, CidrIp: 0.0.0.0/0}]
+  WebServer:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !Ref AmiId
+      InstanceType: t3.micro
+      SubnetId: !Ref Subnet1
+      SecurityGroupIds: [!Ref WebSG]
+      UserData: !Base64 |
+        #!/bin/bash
+        echo "Hello from LocalStack Web Server!" > index.html
+        python3 -m http.server 80 &

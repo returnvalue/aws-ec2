@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AsgName: {Type: String}
+Resources:
+  CpuTrackingPolicy:
+    Type: 'AWS::AutoScaling::ScalingPolicy'
+    Properties:
+      AutoScalingGroupName: !Ref AsgName
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification: {PredefinedMetricType: ASGAverageCPUUtilization}
+        TargetValue: 50.0

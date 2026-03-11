@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  VpcId: {Type: String}
+  Subnet1Id: {Type: String}
+  Subnet2Id: {Type: String}
+  SgId: {Type: String}
+Resources:
+  WebTG:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties: {Name: WebTG, Port: 80, Protocol: HTTP, VpcId: !Ref VpcId}
+  WebALB:
+    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Properties: {Name: WebALB, Subnets: [!Ref Subnet1Id, !Ref Subnet2Id], SecurityGroups: [!Ref SgId]}
+  WebListener:
+    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Properties:
+      LoadBalancerArn: !Ref WebALB
+      Port: 80
+      Protocol: HTTP
+      DefaultActions: [{Type: forward, TargetGroupArn: !Ref WebTG}]

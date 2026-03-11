@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AmiId: {Type: String}
+  Subnet1Id: {Type: String}
+Resources:
+  SpotServer:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !Ref AmiId
+      InstanceType: c5.large
+      SubnetId: !Ref Subnet1Id
+      LaunchTemplate: # CFM uses LaunchTemplates for Spot usually, but basic Instance has MarketOptions too
+        InstanceMarketOptions: {MarketType: spot}
+      Tags: [{Key: Name, Value: BatchProcessorSpot}]

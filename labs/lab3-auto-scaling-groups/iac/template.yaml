@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AmiId: {Type: String}
+  SgId: {Type: String}
+  Subnet1Id: {Type: String}
+  Subnet2Id: {Type: String}
+  TgArn: {Type: String}
+Resources:
+  WebLT:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateName: WebServersLT
+      LaunchTemplateData:
+        ImageId: !Ref AmiId
+        InstanceType: t3.micro
+        SecurityGroupIds: [!Ref SgId]
+        UserData: !Base64 |
+          #!/bin/bash
+          echo "Hello from LocalStack Web Server!" > index.html
+          python3 -m http.server 80 &
+  WebASG:
+    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Properties:
+      AutoScalingGroupName: WebASG
+      VPCZoneIdentifier: [!Ref Subnet1Id, !Ref Subnet2Id]
+      TargetGroupARNs: [!Ref TgArn]
+      MinSize: '1'
+      MaxSize: '4'
+      DesiredCapacity: '2'
+      LaunchTemplate: {LaunchTemplateId: !Ref WebLT, Version: !GetAtt WebLT.LatestVersionNumber}
