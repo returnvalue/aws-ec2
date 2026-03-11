@@ -11,8 +11,8 @@ Based on AWS best practices (SAA-C03), these labs cover:
 * **EC2 Provisioning:** Launching On-Demand instances with optimized AMI selection.
 * **Security & Access:** Implementing stateful Security Groups and instance-level bootstrapping via User Data.
 * **High Availability:** Designing for fault tolerance using Multi-AZ deployments.
-* **Scaling & Load Balancing:** (Upcoming) Exploring Launch Templates, Auto Scaling Groups, and Elastic Load Balancers.
-* **Cost Optimization:** (Upcoming) Leveraging Spot Instances and Savings Plans logic.
+* **Scaling & Load Balancing:** Exploring Launch Templates, Auto Scaling Groups, and Elastic Load Balancers.
+* **Cost Optimization:** Leveraging Spot Instances and Savings Plans logic.
 
 ## ⚙️ Prerequisites
 
