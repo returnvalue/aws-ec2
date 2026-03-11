@@ -27,7 +27,7 @@ awslocal ec2 run-instances \
 
 ## 🛠️ Command Reference
 
-- `awslocal ec2 run-instances`: Launches a new EC2 instance with specified parameters.
+- `ec2 run-instances`: Launches a new EC2 instance with specified parameters.
     - `--image-id`: The AMI ID to use.
     - `--instance-type`: The type of instance (e.g., `c5.large`).
     - `--subnet-id`: The subnet to launch into.

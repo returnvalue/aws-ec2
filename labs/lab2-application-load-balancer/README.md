@@ -39,19 +39,19 @@ awslocal elbv2 create-listener \
 
 ## 🛠️ Command Reference
 
-- `awslocal elbv2 create-target-group`: Creates a target group for routing requests to registered targets.
+- `elbv2 create-target-group`: Creates a target group for routing requests to registered targets.
     - `--name`: The name of the target group.
     - `--protocol`: The protocol to use (e.g., `HTTP`).
     - `--port`: The port to listen on (e.g., `80`).
     - `--vpc-id`: The VPC in which to create the target group.
-- `awslocal elbv2 register-targets`: Registers one or more targets (instances) with a target group.
+- `elbv2 register-targets`: Registers one or more targets (instances) with a target group.
     - `--target-group-arn`: The ARN of the target group.
     - `--targets`: The ID(s) of the targets to register.
-- `awslocal elbv2 create-load-balancer`: Creates an Application Load Balancer.
+- `elbv2 create-load-balancer`: Creates an Application Load Balancer.
     - `--name`: The name of the load balancer.
     - `--subnets`: The subnets to associate with the load balancer.
     - `--security-groups`: The security groups to associate with the load balancer.
-- `awslocal elbv2 create-listener`: Creates a listener for the load balancer to forward traffic.
+- `elbv2 create-listener`: Creates a listener for the load balancer to forward traffic.
     - `--load-balancer-arn`: The ARN of the load balancer.
     - `--protocol`: The protocol for the listener.
     - `--port`: The port for the listener.

@@ -35,7 +35,7 @@ awslocal autoscaling put-scaling-policy \
 
 ## 🛠️ Command Reference
 
-- `awslocal autoscaling put-scaling-policy`: Adds or updates a scaling policy for an Auto Scaling group.
+- `autoscaling put-scaling-policy`: Adds or updates a scaling policy for an Auto Scaling group.
     - `--auto-scaling-group-name`: The name of the Auto Scaling group.
     - `--policy-name`: A descriptive name for the policy.
     - `--policy-type`: The type of scaling policy (e.g., `TargetTrackingScaling`).

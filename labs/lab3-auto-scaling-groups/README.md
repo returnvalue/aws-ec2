@@ -40,10 +40,10 @@ awslocal autoscaling create-auto-scaling-group \
 
 ## 🛠️ Command Reference
 
-- `awslocal ec2 create-launch-template`: Creates a template containing configuration information to launch an instance.
+- `ec2 create-launch-template`: Creates a template containing configuration information to launch an instance.
     - `--launch-template-name`: The name for the launch template.
     - `--launch-template-data`: The JSON file or string containing the configuration data.
-- `awslocal autoscaling create-auto-scaling-group`: Creates an Auto Scaling group with specified capacity and networking.
+- `autoscaling create-auto-scaling-group`: Creates an Auto Scaling group with specified capacity and networking.
     - `--auto-scaling-group-name`: The name of the ASG.
     - `--launch-template`: Specifies the ID and version of the launch template to use.
     - `--min-size`: The minimum number of instances in the group.

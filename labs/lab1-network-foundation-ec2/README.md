@@ -49,26 +49,26 @@ INSTANCE_ID=$(awslocal ec2 run-instances \
 
 ## 🛠️ Command Reference
 
-- `awslocal ec2 create-vpc`: Creates a Virtual Private Cloud with a specified CIDR block.
+- `ec2 create-vpc`: Creates a Virtual Private Cloud with a specified CIDR block.
     - `--cidr-block`: The IP range for the VPC.
-- `awslocal ec2 create-subnet`: Creates a subnet within a VPC in a specific Availability Zone.
+- `ec2 create-subnet`: Creates a subnet within a VPC in a specific Availability Zone.
     - `--vpc-id`: The VPC to associate with the subnet.
     - `--cidr-block`: The IP range for the subnet.
     - `--availability-zone`: The AZ for the subnet.
-- `awslocal ec2 create-internet-gateway`: Creates an Internet Gateway for VPC internet access.
-- `awslocal ec2 attach-internet-gateway`: Attaches an Internet Gateway to a VPC.
-- `awslocal ec2 create-route-table`: Creates a route table for a VPC.
-- `awslocal ec2 create-route`: Adds a route to a route table (e.g., a default route to an IGW).
+- `ec2 create-internet-gateway`: Creates an Internet Gateway for VPC internet access.
+- `ec2 attach-internet-gateway`: Attaches an Internet Gateway to a VPC.
+- `ec2 create-route-table`: Creates a route table for a VPC.
+- `ec2 create-route`: Adds a route to a route table (e.g., a default route to an IGW).
     - `--destination-cidr-block`: The destination traffic range (e.g., `0.0.0.0/0`).
     - `--gateway-id`: The ID of the gateway to route traffic through.
-- `awslocal ec2 associate-route-table`: Associates a route table with a subnet.
-- `awslocal ec2 create-security-group`: Creates a security group to control traffic.
+- `ec2 associate-route-table`: Associates a route table with a subnet.
+- `ec2 create-security-group`: Creates a security group to control traffic.
     - `--group-name`: The name of the security group.
     - `--description`: A brief description of the security group.
-- `awslocal ec2 authorize-security-group-ingress`: Adds an inbound rule to a security group.
+- `ec2 authorize-security-group-ingress`: Adds an inbound rule to a security group.
     - `--protocol`: The network protocol (e.g., `tcp`).
     - `--port`: The destination port (e.g., `80`).
     - `--cidr`: The source IP range allowed.
-- `awslocal ec2 describe-images`: Lists available AMIs based on filters.
-- `awslocal ec2 run-instances`: Launches a new EC2 instance with specified parameters.
+- `ec2 describe-images`: Lists available AMIs based on filters.
+- `ec2 run-instances`: Launches a new EC2 instance with specified parameters.
     - `--user-data`: A script to run on instance launch.
