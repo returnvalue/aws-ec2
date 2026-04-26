@@ -1,7 +1,6 @@
 # Lab 3: EC2 Auto Scaling (Launch Templates & ASG)
 
 **Goal:** Automate instance provisioning and ensure high availability by using Launch Templates and Auto Scaling Groups (ASG) to maintain a desired number of healthy instances across multiple AZs.
-
 ```bash
 # 1. Create the Launch Template JSON payload
 USER_DATA_B64=$(base64 < userdata.sh | tr -d '\n')

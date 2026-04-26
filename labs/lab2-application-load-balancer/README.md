@@ -1,7 +1,6 @@
 # Lab 2: Layer 7 Application Load Balancer (ALB)
 
 **Goal:** Distribute incoming HTTP traffic across multiple targets (starting with our single instance) using an Application Load Balancer (ALB).
-
 ```bash
 # 1. Create a Target Group
 TG_ARN=$(awslocal elbv2 create-target-group \

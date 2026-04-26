@@ -1,7 +1,6 @@
 # Lab 4: Auto Scaling Policies (Target Tracking)
 
 **Goal:** Implement dynamic scaling for our Auto Scaling Group using Target Tracking policies. This ensures that the fleet size adjusts automatically based on real-time metrics like CPU utilization.
-
 ```bash
 # 1. Define the target tracking logic
 cat <<EOF > scaling-policy.json

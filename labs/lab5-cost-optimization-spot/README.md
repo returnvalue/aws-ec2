@@ -1,7 +1,6 @@
 # Lab 5: Cost Optimization (Spot Instances)
 
 **Goal:** Deploy a highly optimized compute instance for fault-tolerant batch processing using heavily discounted Spot instances, which can save up to 90% over On-Demand pricing.
-
 ```bash
 # Request a Spot Instance for fault-tolerant workloads
 awslocal ec2 run-instances \

@@ -1,7 +1,6 @@
 # Lab 1: Network Foundation & EC2 Provisioning
 
 **Goal:** Create a highly available network foundation (VPC, Subnets, Internet Gateway) and launch an EC2 instance with an automated web server bootstrap using User Data.
-
 ```bash
 # 1. Create a VPC and two Subnets for High Availability
 VPC_ID=$(awslocal ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.VpcId' --output text)
